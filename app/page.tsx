@@ -1,4 +1,4 @@
-import { products } from "./data";
+import { products, site } from "./data";
 import { asset } from "./utils";
 
 function formatPrice(cents: number) {
@@ -9,17 +9,30 @@ function formatPrice(cents: number) {
   }).format(cents);
 }
 
+const marqueeItems = [
+  "Cacao de ritual",
+  "Hecho en Colombia",
+  "Naranja",
+  "Uchuva",
+  "Ají",
+  "Chocolate con propósito",
+  "Rescate animal",
+];
+
 export default function Home() {
   return (
     <>
       <header className="site-header">
         <nav aria-label="Navegación principal">
           <a href="#inicio" className="logo">
-            Líbana
+            Líbana<span className="logo-dot">.</span>
           </a>
           <ul>
             <li>
               <a href="#sabores">Sabores</a>
+            </li>
+            <li>
+              <a href="#movimiento">Míralo</a>
             </li>
             <li>
               <a href="#historia">Historia</a>
@@ -35,83 +48,121 @@ export default function Home() {
 
       <main>
         <section id="inicio" className="hero">
-          <div className="container">
-            <p className="hero-kicker">Cacao de ritual, hecho en Colombia</p>
-            <h1>Sabor intenso y puro</h1>
+          <div
+            className="hero-photo"
+            aria-hidden="true"
+            style={{ backgroundImage: `url(${asset("/assets/site/img_0655.jpg")})` }}
+          />
+          <div className="hero-overlay" aria-hidden="true" />
+          <div className="container hero-content">
+            <p className="hero-kicker">
+              <span className="sticker">Chocolate con propósito</span>
+            </p>
+            <h1>
+              Sabor
+              <br />
+              intenso
+              <br />
+              <em>y puro</em>
+            </h1>
             <p className="hero-sub">
               Chocolate oscuro de un solo origen, hecho con cacao orgánico
-              colombiano.
+              colombiano. Cada barra aporta a fundaciones de rescate animal.
             </p>
             <div className="hero-ctas">
               <a href="#compra" className="btn btn-primary">
-                Compra ya
+                Compra ya →
               </a>
-              <a href="#sabores" className="btn btn-accent">
-                Ver cacao
+              <a href="#sabores" className="btn btn-ghost">
+                Ver sabores
               </a>
             </div>
-            <img
-              src={asset("/assets/site/image-11.jpg")}
-              alt="Barra de chocolate Líbana con naranjas deshidratadas sobre tabla de madera"
-              className="hero-img"
-            />
           </div>
         </section>
 
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            {[...marqueeItems, ...marqueeItems].map((t, i) => (
+              <span key={i}>
+                {t} <i>✦</i>
+              </span>
+            ))}
+          </div>
+        </div>
+
         <section id="sabores" className="section flavors">
           <div className="container">
+            <p className="eyebrow">Lo que hacemos</p>
             <h2 className="section-title">Sabores únicos</h2>
             <div className="flavors-grid">
-              <article>
-                <img
-                  src={asset("/assets/site/store-cacao.jpg")}
-                  alt="Cacao fino de aroma Líbana"
-                  className="category-img"
-                  loading="lazy"
-                />
+              <article className="card">
+                <div className="card-img">
+                  <img
+                    src={asset("/assets/site/store-cacao.jpg")}
+                    alt="Cacao fino de aroma Líbana"
+                    loading="lazy"
+                  />
+                </div>
                 <h3>Cacao Fino de Aroma</h3>
                 <p>
-                  Granos seleccionados para un sabor intenso y con perfiles
+                  Granos seleccionados para un sabor intenso con perfiles
                   sensoriales únicos.
                 </p>
-                <a href="#compra">Ver cacao →</a>
+                <a href="#compra" className="card-link">
+                  Ver cacao →
+                </a>
               </article>
-              <article>
-                <img
-                  src={asset("/assets/site/store-chocolate-1.jpg")}
-                  alt="Barras de chocolate oscuro Líbana"
-                  className="category-img"
-                  loading="lazy"
-                />
+              <article className="card">
+                <div className="card-img">
+                  <img
+                    src={asset("/assets/site/store-chocolate-1.jpg")}
+                    alt="Barras de chocolate oscuro Líbana"
+                    loading="lazy"
+                  />
+                </div>
                 <h3>Barras de Chocolate Oscuro</h3>
                 <p>
-                  Chocolate oscuro de un solo origen con notas intensas y
-                  suaves.
+                  Un solo origen, notas intensas y suaves. Naranja, uchuva y
+                  ají.
                 </p>
-                <a href="#compra">Ver barras →</a>
+                <a href="#compra" className="card-link">
+                  Ver barras →
+                </a>
               </article>
-              <article>
-                <img
-                  src={asset("/assets/site/store-chocolate-2.jpg")}
-                  alt="Regalos Líbana"
-                  className="category-img"
-                  loading="lazy"
-                />
+              <article className="card">
+                <div className="card-img">
+                  <img
+                    src={asset("/assets/site/store-chocolate-2.jpg")}
+                    alt="Regalos Líbana"
+                    loading="lazy"
+                  />
+                </div>
                 <h3>Regalos</h3>
                 <p>Presentaciones perfectas para cualquier ocasión.</p>
-                <a href="#compra">Ver regalos →</a>
+                <a href="#compra" className="card-link">
+                  Ver regalos →
+                </a>
               </article>
             </div>
           </div>
         </section>
 
         <section id="historia" className="section story">
-          <div className="container">
-            <h2 className="section-title">Sabor</h2>
-            <p>
-              Del cacao puro a tu paladar, cada barra cuenta su historia. Cada
-              compra aporta a fundaciones de rescate animal en Colombia.
-            </p>
+          <div className="container story-grid">
+            <div className="story-text">
+              <p className="eyebrow light">Nuestra historia</p>
+              <h2 className="section-title">
+                Del cacao puro
+                <br />a tu paladar
+              </h2>
+              <p className="story-lead">
+                Cada barra cuenta su historia. Cada compra aporta a
+                fundaciones de rescate animal en Colombia.
+              </p>
+              <a href="#compra" className="btn btn-primary">
+                Únete al propósito →
+              </a>
+            </div>
             <div className="story-video">
               <video
                 src={asset("/assets/videos/mvi-1255.mp4")}
@@ -127,9 +178,10 @@ export default function Home() {
 
         <section id="movimiento" className="section movement">
           <div className="container">
+            <p className="eyebrow">Míralo de cerca</p>
             <h2 className="section-title">Sabores en movimiento</h2>
             <p className="movement-sub">
-              Mira nuestro chocolate de cerca: textura, brillo y propósito.
+              Textura, brillo y quiebre real. Sin filtros.
             </p>
             <div className="video-grid">
               <video src={asset("/assets/videos/mvi-0408.mp4")} autoPlay muted loop playsInline aria-label="Barra de chocolate sobre superficie oscura" />
@@ -144,10 +196,8 @@ export default function Home() {
 
         <section id="galeria" className="section galeria">
           <div className="container">
+            <p className="eyebrow">El detalle</p>
             <h2 className="section-title">La barra por dentro</h2>
-            <p className="movement-sub">
-              Cada ángulo del chocolate: envoltura, molde, quiebre y brillo.
-            </p>
             <div className="galeria-grid">
               <img src={asset("/assets/galeria/Naranja-3-4.jpg")} alt="Barra Naranja ángulo 3/4" loading="lazy" />
               <img src={asset("/assets/galeria/Uchuva-3-4.jpg")} alt="Barra Uchuva ángulo 3/4" loading="lazy" />
@@ -164,38 +214,39 @@ export default function Home() {
 
         <section id="compra" className="section checkout">
           <div className="container">
+            <p className="eyebrow">Pide el tuyo</p>
             <h2 className="section-title">Compra ya</h2>
-            <p className="checkout-sub">
-              Elige tu sabor y paga en segundos. Tarjeta, PSE o Nequi —
-              directo, sin vueltas.
+            <p className="movement-sub">
+              Elige tu sabor y paga en segundos. Tarjeta, PSE o Nequi.
             </p>
             <div className="products-grid">
               {products.map((p) => (
                 <article key={p.id} className="product-card">
+                  <div className="product-badge">{p.flavor}</div>
                   <img
                     src={p.image}
                     alt={`Barra de chocolate Líbana sabor ${p.flavor}`}
-                    className="product-img"
                     width={540}
                     height={810}
                     loading="lazy"
                   />
                   <h3>{p.name}</h3>
                   <p>{p.description}</p>
-                  <p className="product-price">{formatPrice(p.price)}</p>
-                  <a
-                    href={p.paymentUrl}
-                    className="btn btn-primary"
-                    rel="noopener noreferrer"
-                  >
-                    Pagar
-                  </a>
+                  <div className="product-foot">
+                    <span className="product-price">{formatPrice(p.price)}</span>
+                    <a
+                      href={p.paymentUrl}
+                      className="btn btn-primary"
+                      rel="noopener noreferrer"
+                    >
+                      Pagar
+                    </a>
+                  </div>
                 </article>
               ))}
             </div>
             <p className="checkout-note">
-              Pagos procesados de forma segura. Cambiar de pasarela es tan
-              simple como cambiar un enlace.
+              Pagos procesados de forma segura vía Wompi o Bold.
             </p>
           </div>
         </section>
@@ -203,13 +254,14 @@ export default function Home() {
         <section id="newsletter" className="section newsletter">
           <div className="container">
             <h2>Únete a Líbana</h2>
-            <p>Recibe ofertas y novedades del cacao.</p>
+            <p>Ofertas y novedades del cacao, directo a tu correo.</p>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div className="container">
+        <div className="container footer-inner">
+          <span className="logo">Líbana.</span>
           <p>© {new Date().getFullYear()} Líbana Chocolates — Cacao de ritual.</p>
         </div>
       </footer>
