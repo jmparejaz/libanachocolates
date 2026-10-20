@@ -1,3 +1,4 @@
+import { asset } from "./utils";
 export type Product = {
   id: string;
   name: string;
@@ -15,7 +16,7 @@ export const products: Product[] = [
     flavor: "Naranja",
     description:
       "Chocolate oscuro de un solo origen con trozos de naranja deshidratada. Cítrico, intenso, puro.",
-    image: "/assets/galeria/Naranja-frontal-chocolate.jpg",
+    image: asset("/assets/galeria/Naranja-frontal-chocolate.jpg"),
     price: 28000,
     paymentUrl: "https://checkout.wompi.co/l/libana-naranja",
   },
@@ -25,7 +26,7 @@ export const products: Product[] = [
     flavor: "Uchuva",
     description:
       "Nuestro sabor más colombiano: uchuva deshidratada bañada en chocolate oscuro 70%.",
-    image: "/assets/galeria/Frontal-Chocolate-Uchuva.jpg",
+    image: asset("/assets/galeria/Frontal-Chocolate-Uchuva.jpg"),
     price: 28000,
     paymentUrl: "https://checkout.wompi.co/l/libana-uchuva",
   },
@@ -35,7 +36,7 @@ export const products: Product[] = [
     flavor: "Ají",
     description:
       "Chocolate oscuro con un toque de ají colombiano. Dulce al principio, picante al final.",
-    image: "/assets/galeria/Frontal-Chocolate-Aji.jpg",
+    image: asset("/assets/galeria/Frontal-Chocolate-Aji.jpg"),
     price: 28000,
     paymentUrl: "https://checkout.wompi.co/l/libana-aji",
   },

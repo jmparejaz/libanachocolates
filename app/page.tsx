@@ -1,4 +1,5 @@
 import { products } from "./data";
+import { asset } from "./utils";
 
 function formatPrice(cents: number) {
   return new Intl.NumberFormat("es-CO", {
@@ -49,6 +50,11 @@ export default function Home() {
                 Ver cacao
               </a>
             </div>
+            <img
+              src={asset("/assets/site/image-11.jpg")}
+              alt="Barra de chocolate Líbana con naranjas deshidratadas sobre tabla de madera"
+              className="hero-img"
+            />
           </div>
         </section>
 
@@ -58,7 +64,7 @@ export default function Home() {
             <div className="flavors-grid">
               <article>
                 <img
-                  src="/assets/site/store-cacao.jpg"
+                  src={asset("/assets/site/store-cacao.jpg")}
                   alt="Cacao fino de aroma Líbana"
                   className="category-img"
                   loading="lazy"
@@ -72,7 +78,7 @@ export default function Home() {
               </article>
               <article>
                 <img
-                  src="/assets/site/store-chocolate-1.jpg"
+                  src={asset("/assets/site/store-chocolate-1.jpg")}
                   alt="Barras de chocolate oscuro Líbana"
                   className="category-img"
                   loading="lazy"
@@ -86,7 +92,7 @@ export default function Home() {
               </article>
               <article>
                 <img
-                  src="/assets/site/store-chocolate-2.jpg"
+                  src={asset("/assets/site/store-chocolate-2.jpg")}
                   alt="Regalos Líbana"
                   className="category-img"
                   loading="lazy"
@@ -108,7 +114,7 @@ export default function Home() {
             </p>
             <div className="story-video">
               <video
-                src="/assets/videos/mvi-1255.mp4"
+                src={asset("/assets/videos/mvi-1255.mp4")}
                 autoPlay
                 muted
                 loop
@@ -126,12 +132,12 @@ export default function Home() {
               Mira nuestro chocolate de cerca: textura, brillo y propósito.
             </p>
             <div className="video-grid">
-              <video src="/assets/videos/mvi-0408.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate sobre superficie oscura" />
-              <video src="/assets/videos/mvi-0915.mp4" autoPlay muted loop playsInline aria-label="Barra con naranja deshidratada" />
-              <video src="/assets/videos/mvi-0920.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate Líbana" />
-              <video src="/assets/videos/mvi-0911.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate con trozos" />
-              <video src="/assets/videos/mvi-0921.mp4" autoPlay muted loop playsInline aria-label="Barra Líbana con el gato del empaque" />
-              <video src="/assets/videos/mvi-0407.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate en plato" />
+              <video src={asset("/assets/videos/mvi-0408.mp4")} autoPlay muted loop playsInline aria-label="Barra de chocolate sobre superficie oscura" />
+              <video src={asset("/assets/videos/mvi-0915.mp4")} autoPlay muted loop playsInline aria-label="Barra con naranja deshidratada" />
+              <video src={asset("/assets/videos/mvi-0920.mp4")} autoPlay muted loop playsInline aria-label="Barra de chocolate Líbana" />
+              <video src={asset("/assets/videos/mvi-0911.mp4")} autoPlay muted loop playsInline aria-label="Barra de chocolate con trozos" />
+              <video src={asset("/assets/videos/mvi-0921.mp4")} autoPlay muted loop playsInline aria-label="Barra Líbana con el gato del empaque" />
+              <video src={asset("/assets/videos/mvi-0407.mp4")} autoPlay muted loop playsInline aria-label="Barra de chocolate en plato" />
             </div>
           </div>
         </section>
@@ -143,15 +149,15 @@ export default function Home() {
               Cada ángulo del chocolate: envoltura, molde, quiebre y brillo.
             </p>
             <div className="galeria-grid">
-              <img src="/assets/galeria/Naranja-3-4.jpg" alt="Barra Naranja ángulo 3/4" loading="lazy" />
-              <img src="/assets/galeria/Uchuva-3-4.jpg" alt="Barra Uchuva ángulo 3/4" loading="lazy" />
-              <img src="/assets/galeria/Aji-3-4.jpg" alt="Barra Ají ángulo 3/4" loading="lazy" />
-              <img src="/assets/galeria/Naranja-atras.jpg" alt="Envoltura Naranja por detrás" loading="lazy" />
-              <img src="/assets/galeria/Uchuva-atras.jpg" alt="Envoltura Uchuva por detrás" loading="lazy" />
-              <img src="/assets/galeria/Aji-atras.jpg" alt="Envoltura Ají por detrás" loading="lazy" />
-              <img src="/assets/galeria/Barra-de-chocolate-sin-envoltura.jpg" alt="Barra de chocolate sin envoltura" loading="lazy" />
-              <img src="/assets/galeria/Chocolate-de-mesa.jpg" alt="Chocolate de mesa Líbana" loading="lazy" />
-              <img src="/assets/galeria/Chocolate-de-mesa-closeup.jpg" alt="Chocolate de mesa en detalle" loading="lazy" />
+              <img src={asset("/assets/galeria/Naranja-3-4.jpg")} alt="Barra Naranja ángulo 3/4" loading="lazy" />
+              <img src={asset("/assets/galeria/Uchuva-3-4.jpg")} alt="Barra Uchuva ángulo 3/4" loading="lazy" />
+              <img src={asset("/assets/galeria/Aji-3-4.jpg")} alt="Barra Ají ángulo 3/4" loading="lazy" />
+              <img src={asset("/assets/galeria/Naranja-atras.jpg")} alt="Envoltura Naranja por detrás" loading="lazy" />
+              <img src={asset("/assets/galeria/Uchuva-atras.jpg")} alt="Envoltura Uchuva por detrás" loading="lazy" />
+              <img src={asset("/assets/galeria/Aji-atras.jpg")} alt="Envoltura Ají por detrás" loading="lazy" />
+              <img src={asset("/assets/galeria/Barra-de-chocolate-sin-envoltura.jpg")} alt="Barra de chocolate sin envoltura" loading="lazy" />
+              <img src={asset("/assets/galeria/Chocolate-de-mesa.jpg")} alt="Chocolate de mesa Líbana" loading="lazy" />
+              <img src={asset("/assets/galeria/Chocolate-de-mesa-closeup.jpg")} alt="Chocolate de mesa en detalle" loading="lazy" />
             </div>
           </div>
         </section>

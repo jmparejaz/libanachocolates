@@ -8,8 +8,8 @@
   --honey-bright: #f4a261;
   --berry: #8e292e;
   --petrol: #004b66;
-  --font-display: var(--font-display), system-ui, sans-serif;
-  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-display-stack: var(--font-display), system-ui, sans-serif;
+  --font-body-stack: var(--font-body), system-ui, sans-serif;
 }
 
 * {
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body-stack);
   background: var(--cream);
   color: var(--choco-900);
   line-height: 1.6;
@@ -33,7 +33,7 @@ h1,
 h2,
 h3,
 .display {
-  font-family: var(--font-display);
+  font-family: var(--font-display-stack);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -47,7 +47,7 @@ h3,
   display: inline-block;
   padding: 0.9rem 1.8rem;
   border-radius: 999px;
-  font-family: var(--font-display);
+  font-family: var(--font-display-stack);
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
@@ -106,7 +106,7 @@ h3,
 }
 
 .logo {
-  font-family: var(--font-display);
+  font-family: var(--font-display-stack);
   font-weight: 800;
   font-size: 1.6rem;
   color: var(--choco-900);
@@ -276,7 +276,7 @@ h3,
 }
 
 .product-price {
-  font-family: var(--font-display);
+  font-family: var(--font-display-stack);
   font-weight: 700;
   font-size: 1.2rem !important;
 }
@@ -365,4 +365,12 @@ h3,
 
 .galeria-grid img:hover {
   transform: scale(1.03);
+}
+
+.hero-img {
+  width: min(520px, 92%);
+  border-radius: 1.2rem;
+  border: 3px solid var(--choco-900);
+  margin-top: 3rem;
+  box-shadow: 0 12px 32px rgba(13, 20, 26, 0.35);
 }
