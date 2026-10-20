@@ -57,6 +57,12 @@ export default function Home() {
             <h2 className="section-title">Sabores únicos</h2>
             <div className="flavors-grid">
               <article>
+                <img
+                  src="/assets/site/store-cacao.jpg"
+                  alt="Cacao fino de aroma Líbana"
+                  className="category-img"
+                  loading="lazy"
+                />
                 <h3>Cacao Fino de Aroma</h3>
                 <p>
                   Granos seleccionados para un sabor intenso y con perfiles
@@ -65,6 +71,12 @@ export default function Home() {
                 <a href="#compra">Ver cacao →</a>
               </article>
               <article>
+                <img
+                  src="/assets/site/store-chocolate-1.jpg"
+                  alt="Barras de chocolate oscuro Líbana"
+                  className="category-img"
+                  loading="lazy"
+                />
                 <h3>Barras de Chocolate Oscuro</h3>
                 <p>
                   Chocolate oscuro de un solo origen con notas intensas y
@@ -73,6 +85,12 @@ export default function Home() {
                 <a href="#compra">Ver barras →</a>
               </article>
               <article>
+                <img
+                  src="/assets/site/store-chocolate-2.jpg"
+                  alt="Regalos Líbana"
+                  className="category-img"
+                  loading="lazy"
+                />
                 <h3>Regalos</h3>
                 <p>Presentaciones perfectas para cualquier ocasión.</p>
                 <a href="#compra">Ver regalos →</a>

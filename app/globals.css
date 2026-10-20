@@ -1,12 +1,13 @@
 :root {
-  --choco-900: #2b1a12;
-  --choco-700: #4a2c1a;
+  --choco-900: #0d141a;
+  --choco-700: #3d2b1f;
   --choco-500: #6f4a2f;
-  --cream: #f7ecdd;
-  --cream-dark: #eeddc4;
-  --honey: #e8a13a;
-  --berry: #a33b2e;
-  --leaf: #5c7a4a;
+  --cream: #fff8e2;
+  --cream-dark: #e7e8d1;
+  --honey: #d99312;
+  --honey-bright: #f4a261;
+  --berry: #8e292e;
+  --petrol: #004b66;
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-body: var(--font-body), system-ui, sans-serif;
 }
@@ -61,7 +62,7 @@ h3,
 }
 
 .btn-primary {
-  background: var(--choco-700);
+  background: var(--petrol);
   color: var(--cream);
 }
 
@@ -133,8 +134,8 @@ h3,
 }
 
 .hero {
-  background: var(--choco-700);
-  color: var(--cream);
+  background: var(--honey);
+  color: var(--choco-900);
   text-align: center;
   padding: 7rem 0 6rem;
 }
@@ -148,8 +149,9 @@ h3,
   font-size: 1.1rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--honey);
+  color: var(--berry);
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .hero-sub {
@@ -284,4 +286,13 @@ h3,
   margin-top: 2rem;
   font-size: 0.9rem;
   color: var(--choco-500);
+}
+
+.category-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  border: 2px solid var(--choco-900);
+  margin-bottom: 1rem;
 }
