@@ -136,6 +136,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="galeria" className="section galeria">
+          <div className="container">
+            <h2 className="section-title">La barra por dentro</h2>
+            <p className="movement-sub">
+              Cada ángulo del chocolate: envoltura, molde, quiebre y brillo.
+            </p>
+            <div className="galeria-grid">
+              <img src="/assets/galeria/Naranja-3-4.jpg" alt="Barra Naranja ángulo 3/4" loading="lazy" />
+              <img src="/assets/galeria/Uchuva-3-4.jpg" alt="Barra Uchuva ángulo 3/4" loading="lazy" />
+              <img src="/assets/galeria/Aji-3-4.jpg" alt="Barra Ají ángulo 3/4" loading="lazy" />
+              <img src="/assets/galeria/Naranja-atras.jpg" alt="Envoltura Naranja por detrás" loading="lazy" />
+              <img src="/assets/galeria/Uchuva-atras.jpg" alt="Envoltura Uchuva por detrás" loading="lazy" />
+              <img src="/assets/galeria/Aji-atras.jpg" alt="Envoltura Ají por detrás" loading="lazy" />
+              <img src="/assets/galeria/Barra-de-chocolate-sin-envoltura.jpg" alt="Barra de chocolate sin envoltura" loading="lazy" />
+              <img src="/assets/galeria/Chocolate-de-mesa.jpg" alt="Chocolate de mesa Líbana" loading="lazy" />
+              <img src="/assets/galeria/Chocolate-de-mesa-closeup.jpg" alt="Chocolate de mesa en detalle" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
         <section id="compra" className="section checkout">
           <div className="container">
             <h2 className="section-title">Compra ya</h2>

@@ -343,3 +343,26 @@ h3,
     display: none;
   }
 }
+
+.galeria {
+  background: #fff;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.galeria-grid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 0.9rem;
+  border: 2px solid var(--choco-900);
+  transition: transform 0.2s ease;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.03);
+}
