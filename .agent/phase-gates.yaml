@@ -1,0 +1,119 @@
+# Phase Gates --- Structural Enforcement
+#
+# Define los artefactos que DEBEN existir antes de avanzar de una fase a otra.
+# El Head of Council consulta este archivo antes de cada transicion de fase.
+# Si un gate no se cumple, la fase NO avanza.
+
+version: 1
+
+phases:
+
+  boot:
+    description: "Cargar harness y preparar contexto"
+    required_artifacts:
+      - path: ".agents/communications/<TICKET>_execution/00_thread_header.md"
+        description: "Thread header con participantes y protocolo"
+    required_actions:
+      - "HOC ha anunciado: Soy el Head of Council."
+      - "HOC ha leido HARNESS.md, topology.md, head-of-council.md"
+      - "HOC ha leido protocols/tool-preflight.md y verificado la superficie de herramientas del runtime (Ley 7)"
+    next_phase: strategic
+
+  strategic:
+    description: "Head of Council crea el plan estrategico"
+    required_artifacts:
+      - path: ".agents/plans/<TICKET>_strategic_plan.md"
+        description: "Plan estrategico con subplanes, riesgos y workers"
+    required_actions:
+      - "Plan estrategico presentado al usuario"
+      - "Usuario ha confirmado el plan (o HOC ha iterado hasta confirmacion)"
+      - "Lista de Commit Subplanes definida y ordenada"
+    next_phase: detailed
+
+  detailed:
+    description: "HOC + workers co-crean el plan detallado de ejecucion"
+    required_artifacts:
+      - path: ".agents/plans/<TICKET>_execution_plan.md"
+        description: "Plan detallado con cada subplan especificado"
+    required_actions:
+      - "Workers han aportado (dispatch logs + reports en thread)"
+      - "Cada subplan tiene: archivos, funciones, tests, verification, acceptance criteria"
+      - "Orden de ejecucion definido (batches de paralelizacion si aplica)"
+    next_phase: execute
+
+  execute:
+    description: "HOC delega subplan al Worker Developer"
+    required_artifacts:
+      - path: ".agents/communications/<TICKET>_execution/NN_dispatch_subplan-<M>.md"
+        description: "Dispatch log del subplan en ejecucion"
+      - path: ".agents/communications/<TICKET>_execution/NN_report_subplan-<M>_dev.md"
+        description: "Reporte del Worker Developer con resultados"
+    required_actions:
+      - "Worker Developer ha implementado codigo + tests"
+      - "Verification steps del subplan ejecutados"
+      - "Tests pasan"
+      - "Preflight de delegacion registrado en el dispatch log: destinatario elegible y disponible en el runtime (Ley 7)"
+      - "Preflight de archivos registrado: existencia + longitud antes de view, coincidencia unica antes de edit"
+    next_phase: review
+
+  review:
+    description: "HOC delega review al Worker Reviewer"
+    required_artifacts:
+      - path: ".agents/communications/<TICKET>_execution/NN_review_subplan-<M>.md"
+        description: "Review report con verdict explicito"
+    required_actions:
+      - "Worker Reviewer ha emitido verdict: APPROVE / REQUEST_CHANGES / REJECT"
+    transitions:
+      APPROVE: "-> iterate (cierre del loop DEV-REV + Executive Summary, Ley 6)"
+      REQUEST_CHANGES: "-> execute (re-dispatch con cambios solicitados)"
+      REJECT: "-> pause + escalar al usuario"
+    max_review_iterations: 3
+    on_max_iterations: "Escalar al usuario con resumen de la discrepancia"
+    next_phase: iterate
+
+  iterate:
+    description: "Cierre del loop DEV-REV: el HOC emite el Executive Summary del subplan (Ley 6)"
+    required_artifacts:
+      - path: ".agents/communications/<TICKET>_execution/NN_executive_summary_subplan-<M>.md"
+        description: "Executive summary del subplan: TL;DR, razonamiento, decisiones y decisiones accionables"
+    required_actions:
+      - "El HOC consolido el historial completo del loop DEV-REV (R1..RN, no solo la revision final)"
+      - "El executive summary documenta cada decision con alternativa descartada y razon"
+      - "El executive summary incluye la seccion de decisiones accionables (acciones concretas o 'ninguna' explicito)"
+      - "Cada riesgo abierto tiene accion asociada o justificacion explicita"
+      - "Se marca explicitamente cualquier decision tomada sin GO previo del usuario (requiere ratificacion)"
+      - "Checklist de calidad de templates/executive-summary.md verificado por el HOC"
+    transitions:
+      SUBPLAN_CLOSED: "Quedan subplanes -> execute (siguiente subplan)"
+      LAST_SUBPLAN_CLOSED: "Era el ultimo -> close"
+      ESCALATED: "Loop sin converger tras 3 revisiones, o REJECT -> pause + escalar al usuario"
+    next_phase: close
+
+  close:
+    description: "Todos los subplanes approved y documentados con executive summary. Cierre formal."
+    required_artifacts:
+      - path: ".agents/communications/<TICKET>_execution/NN_completion_summary.md"
+        description: "Summary final con commits, tests, archivos, decisiones accionables agregadas y proximos pasos"
+    required_actions:
+      - "Todos los subplanes del execution plan tienen review-report con APPROVE"
+      - "Todos los subplanes del execution plan tienen executive summary emitido (Ley 6)"
+      - "El completion summary agrega los TL;DR y las decisiones accionables de todos los subplanes"
+      - "Completion summary creado"
+      - "Usuario notificado"
+    next_phase: null
+
+# Invariants (se cumplen en TODAS las fases despues de boot):
+invariants:
+  - "El HOC nunca escribe codigo de implementacion."
+  - "El HOC nunca se auto-apueba. Toda review viene del Worker Reviewer."
+  - "Toda delegacion tiene un dispatch log persistido."
+  - "Toda comunicacion worker->HOC se persiste en el thread."
+  - "Los workers nunca se comunican directamente entre si (siempre via HOC)."
+  - "Todo subplan cerrado con APPROVE tiene su executive summary emitido por el HOC (Ley 6)."
+  - "Ningun subplan se marca completado ni se avanza al siguiente sin executive summary."
+  - "No se hacen git commit/push/rebase sin autorizacion explicita del usuario."
+  - "Ninguna herramienta se invoca sobre un supuesto no verificado: existencia de archivo y longitud antes de view, coincidencia unica antes de edit, destinatario elegible antes de delegar (Ley 7)."
+  - "Ninguna herramienta se reintenta con el mismo input tras un fallo: la siguiente llamada parte de informacion nueva (ruta corregida, rango clamped, ancla ampliada o destinatario valido)."
+  - "El HOC no delega sin verificar que el destinatario existe y esta disponible en el runtime actual; el resultado del preflight queda en el dispatch log."
+  - "Si un worker obligatorio (WD/WR) no esta disponible (write_agent: No eligible recipients, agente no admitido, runtime sin metodo de despacho), el HOC declara el bloqueo y escala al usuario: nunca auto-implementa ni auto-revisa, y nunca marca el subplan como completado."
+  - "Todo ToolError evitable se documenta en el thread con su preflight faltante (post-mortem corto), para que el preflight se corrija en el siguiente dispatch."
