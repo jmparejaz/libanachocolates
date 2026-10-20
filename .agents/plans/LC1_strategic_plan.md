@@ -6,7 +6,7 @@
 | **Title** | Migración de libanachocolates.com desde Hostinger Web Designer a sitio codificado |
 | **Date** | 2026-10-20 |
 | **Author** | Head of Council |
-| **Status** | Draft (pendiente GO del usuario en Decisiones Abiertas) |
+| **Status** | Confirmed (decisiones resueltas por el usuario 2026-10-20) |
 | **Source** | [Issue #1](https://github.com/jmparejaz/libanachocolates/issues/1), [PR #2](https://github.com/jmparejaz/libanachocolates/pull/2), KB de Notion "Líbana Chocolates" |
 
 ---
@@ -64,11 +64,11 @@ Secuencial 1→6; `sections` y `checkout-ready` podrían solaparse parcialmente.
 | Estética graza mal calibrada (copy/paste vs adaptación) | media | medio | Tokens de diseño propios de Líbana inspirados en graza, no clon; review adversarial del Reviewer en subplan 3 |
 | Hostinger limita algún aspecto del estático | baja | medio | Vanilla HTML/CSS/JS: cero dependencia runtime |
 
-## 6. Decisiones Abiertas (requieren GO de @jmparejaz)
+## 6. Decisiones Resueltas (GO de @jmparejaz, 2026-10-20)
 
-1. **Stack:** vanilla HTML/CSS/JS (recomendado) vs Astro estático vs Next.js export.
-2. **Estructura:** one-page con anclas (recomendado) vs multi-página.
-3. **Pasarela objetivo:** Mercado Pago o PayU (recomendado) vs Wompi/Stripe — define la forma del checkout-ready.
-4. **Tipografía:** Google Fonts libres estilo display chunky (recomendado) vs licencia de fuente comercial.
+1. **Stack:** **Next.js con `output: 'export'`** (elección del usuario). Build estático → HTML/CSS/JS puro desplegable en Hostinger por upload/FTP.
+2. **Estructura:** **One-page con secciones** (recomendación aceptada por el usuario). Catálogo pequeño = un solo scroll hacia la conversión; patrón graza.co.
+3. **Pasarela objetivo:** **Wompi o Bold, únicamente esas dos** (restricción del usuario). El checkout se diseña genérico vía enlace/botón de pago, compatible con ambas; la elección final entre ellas queda documentada como decisión abierta del handoff.
+4. **Tipografía:** **Logo tipográfico actual de Líbana se mantiene tal cual** (se extrae del sitio/Drive); fuentes públicas libres que sigan la vibra artesanal y divertida de la identidad actual.
 
-> **Estado:** Detenido en FASE 1 esperando GO del usuario sobre las 4 decisiones (o aceptación de las recomendaciones por defecto).
+> Nota de runtime: este entorno no dispone de dispatch a subagents independientes; la mecánica DEV→REV se adapta como dos pasadas estructuradas y documentadas por separado (dispatch-log + review-report), según la cláusula de adaptación del harness-prompt.
