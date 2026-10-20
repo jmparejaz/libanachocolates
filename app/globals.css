@@ -222,3 +222,65 @@ h3,
     padding: 5rem 0 4.5rem;
   }
 }
+
+.checkout {
+  background: #fff;
+}
+
+.checkout-sub {
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  border: 2px solid var(--choco-900);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--cream);
+  transition: transform 0.15s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-img {
+  background: var(--cream-dark);
+  border-radius: 0.8rem;
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.product-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem !important;
+}
+
+.checkout-note {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--choco-500);
+}

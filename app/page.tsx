@@ -1,3 +1,13 @@
+import { products } from "./data";
+
+function formatPrice(cents: number) {
+  return new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    maximumFractionDigits: 0,
+  }).format(cents);
+}
+
 export default function Home() {
   return (
     <>
@@ -25,7 +35,7 @@ export default function Home() {
       <main>
         <section id="inicio" className="hero">
           <div className="container">
-            <p className="hero-kicker">Descuentos irresistibles en chocolates</p>
+            <p className="hero-kicker">Cacao de ritual, hecho en Colombia</p>
             <h1>Sabor intenso y puro</h1>
             <p className="hero-sub">
               Chocolate oscuro de un solo origen, hecho con cacao orgánico
@@ -81,7 +91,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="compra" className="section newsletter">
+        <section id="compra" className="section checkout">
+          <div className="container">
+            <h2 className="section-title">Compra ya</h2>
+            <p className="checkout-sub">
+              Elige tu sabor y paga en segundos. Tarjeta, PSE o Nequi —
+              directo, sin vueltas.
+            </p>
+            <div className="products-grid">
+              {products.map((p) => (
+                <article key={p.id} className="product-card">
+                  <div className="product-img" aria-hidden="true" />
+                  <h3>{p.name}</h3>
+                  <p>{p.description}</p>
+                  <p className="product-price">{formatPrice(p.price)}</p>
+                  <a
+                    href={p.paymentUrl}
+                    className="btn btn-primary"
+                    rel="noopener noreferrer"
+                  >
+                    Pagar
+                  </a>
+                </article>
+              ))}
+            </div>
+            <p className="checkout-note">
+              Pagos procesados de forma segura. Cambiar de pasarela es tan
+              simple como cambiar un enlace.
+            </p>
+          </div>
+        </section>
+
+        <section id="newsletter" className="section newsletter">
           <div className="container">
             <h2>Únete a Líbana</h2>
             <p>Recibe ofertas y novedades del cacao.</p>
