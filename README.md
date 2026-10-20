@@ -26,13 +26,8 @@ El sitio estático queda en `out/`.
 
 Nota: el sitio actual del Web Designer debe desactivarse/elimarse del dominio para que `public_html` sirva este sitio.
 
-## Imágenes (acción manual requerida)
-Las imágenes originales están en el Google Drive del proyecto (carpeta **MADE**, enlazada en Notion). Copiar a `public/assets/productos/` con estos nombres exactos:
-- `naranja-frontal.jpg` ← Drive: FOTOGRAFÍAS/TAMAÑO OPTIMIZADO 1080 → `Naranja-frontal-chocolate1080.jpg` (renombrar)
-- `uchuva-frontal.jpg` ← Drive: FOTOGRAFÍAS/TAMAÑO OPTIMIZADO 1080 → `Uchuva frontal.jpg` (renombrar)
-- `aji-frontal.jpg` ← Drive: FOTOGRAFÍAS/TAMAÑO OPTIMIZADO 1080 → `Ají frontal.jpg` (renombrar)
-
-Luego re-build (`npm run build`) y volver a subir `out/`.
+## Imágenes
+Las imágenes originales del Drive ya están en `public/assets/productos/` (frontal y ángulo 3-4 de cada sabor). El sitio las referencia desde `app/data.ts`.
 
 ## Pagos
 Ver `docs/payments.md`. El checkout usa payment links (Wompi/Bold); las URLs están en `app/data.ts` junto con productos y precios.

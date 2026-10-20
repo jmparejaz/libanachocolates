@@ -256,11 +256,12 @@ h3,
 }
 
 .product-img {
-  background: var(--cream-dark);
+  width: 100%;
+  height: auto;
   border-radius: 0.8rem;
-  min-height: 180px;
-  background-size: cover;
-  background-position: center;
+  border: 2px solid var(--choco-900);
+  aspect-ratio: 2/3;
+  object-fit: cover;
 }
 
 .product-card h3 {

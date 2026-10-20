@@ -101,7 +101,14 @@ export default function Home() {
             <div className="products-grid">
               {products.map((p) => (
                 <article key={p.id} className="product-card">
-                  <div className="product-img" aria-hidden="true" />
+                  <img
+                    src={p.image}
+                    alt={`Barra de chocolate Líbana sabor ${p.flavor}`}
+                    className="product-img"
+                    width={540}
+                    height={810}
+                    loading="lazy"
+                  />
                   <h3>{p.name}</h3>
                   <p>{p.description}</p>
                   <p className="product-price">{formatPrice(p.price)}</p>

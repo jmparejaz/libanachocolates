@@ -2,13 +2,8 @@
 
 Las imágenes originales del sitio viven en el Google Drive del proyecto (carpeta **MADE**, enlazada en la página MADE del Knowledge Base de Notion).
 
-El sitio referencia estas rutas locales (copiar aquí los archivos del Drive, renombrados):
+## Imágenes incluidas
+- `naranja-frontal.jpg`, `uchuva-frontal.jpg`, `aji-frontal.jpg` — usadas en el sitio (app/data.ts)
+- `naranja-3-4.jpg`, `uchuva-3-4.jpg`, `aji-3-4.jpg` — ángulo alternativo disponible
 
-```
-public/assets/productos/
-├── naranja-frontal.jpg   ← "Naranja-frontal-chocolate1080.jpg" (Drive: FOTOGRAFÍAS/TAMAÑO OPTIMIZADO 1080)
-├── uchuva-frontal.jpg    ← "Uchuva frontal.jpg" (misma carpeta)
-└── aji-frontal.jpg       ← "Ají frontal.jpg" (misma carpeta)
-```
-
-Otras imágenes disponibles en el Drive para uso futuro: variantes "detrás" y "3-4" de cada sabor, "Chocolate de mesa", "Barra-de-chocolate-sin-envoltura1080.png", carpeta PRODUCT con 20 fotos de producto, PRESELECCIONADAS y MINI VIDEOS.
+Otras imágenes en el Drive para uso futuro: variantes "detrás" de cada sabor, "Chocolate de mesa", "Barra-de-chocolate-sin-envoltura1080.png", carpeta PRODUCT con 20 fotos, PRESELECCIONADAS y MINI VIDEOS.
