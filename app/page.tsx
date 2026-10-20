@@ -106,6 +106,33 @@ export default function Home() {
               Del cacao puro a tu paladar, cada barra cuenta su historia. Cada
               compra aporta a fundaciones de rescate animal en Colombia.
             </p>
+            <div className="story-video">
+              <video
+                src="/assets/videos/mvi-1255.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Nuestro chocolate acompaña tus momentos"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="movimiento" className="section movement">
+          <div className="container">
+            <h2 className="section-title">Sabores en movimiento</h2>
+            <p className="movement-sub">
+              Mira nuestro chocolate de cerca: textura, brillo y propósito.
+            </p>
+            <div className="video-grid">
+              <video src="/assets/videos/mvi-0408.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate sobre superficie oscura" />
+              <video src="/assets/videos/mvi-0915.mp4" autoPlay muted loop playsInline aria-label="Barra con naranja deshidratada" />
+              <video src="/assets/videos/mvi-0920.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate Líbana" />
+              <video src="/assets/videos/mvi-0911.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate con trozos" />
+              <video src="/assets/videos/mvi-0921.mp4" autoPlay muted loop playsInline aria-label="Barra Líbana con el gato del empaque" />
+              <video src="/assets/videos/mvi-0407.mp4" autoPlay muted loop playsInline aria-label="Barra de chocolate en plato" />
+            </div>
           </div>
         </section>
 
