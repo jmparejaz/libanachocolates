@@ -599,3 +599,68 @@ h3,
     display: none;
   }
 }
+
+/* ---------- BANNER DESTACADO (IMG_0415: plato azul) ---------- */
+
+.banner-destacado {
+  background: var(--petrol);
+  padding: 6rem 0;
+  color: var(--cream);
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.banner-destacado .eyebrow {
+  color: var(--honey-bright);
+}
+
+.banner-destacado .eyebrow::before {
+  color: var(--honey);
+}
+
+.banner-destacado .section-title {
+  color: var(--cream);
+  font-size: Min(9vw, 64px);
+}
+
+.banner-lead {
+  font-family: var(--mono-stack);
+  font-size: 0.98rem;
+  max-width: 30rem;
+  color: var(--cream-dark);
+}
+
+.banner-imgs {
+  position: relative;
+}
+
+.banner-main {
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid var(--cream);
+  box-shadow: 12px 14px 0 rgba(13, 20, 26, 0.35);
+}
+
+.banner-secondary {
+  position: absolute;
+  width: 42%;
+  bottom: -2.5rem;
+  right: -1.2rem;
+  border-radius: 16px;
+  border: 3px solid var(--cream);
+  box-shadow: 6px 8px 0 rgba(13, 20, 26, 0.35);
+}
+
+@media (max-width: 768px) {
+  .banner-grid {
+    grid-template-columns: 1fr;
+  }
+  .banner-secondary {
+    display: none;
+  }
+}

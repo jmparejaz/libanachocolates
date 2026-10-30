@@ -11,12 +11,10 @@ function formatPrice(cents: number) {
 
 const marqueePhotos = [
   "img_0001",
-  "img_0222",
-  "img_0428",
   "img_0655",
+  "img_0428",
   "replicate-prediction",
-  "edited-photo-1",
-  "image-12",
+  "image-11",
 ];
 
 export default function Home() {
@@ -48,7 +46,7 @@ export default function Home() {
           <video
             className="hero-video"
             src={asset("/assets/videos/mvi-0920.mp4")}
-            poster={asset("/assets/site/img_0655.jpg")}
+            poster={asset("/assets/site/img_0222.jpg")}
             autoPlay
             muted
             loop
@@ -92,6 +90,32 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <section className="banner-destacado">
+          <div className="container banner-grid">
+            <div className="banner-text">
+              <p className="eyebrow">Nuestro orgullo</p>
+              <h2 className="section-title">Hecho a mano, con luz natural</h2>
+              <p className="banner-lead">
+                Barras de un solo origen fotografiadas como se merecen: en
+                casa, con paciencia y sombras suaves. Así se ve el chocolate
+                cuando se hace bien.
+              </p>
+            </div>
+            <div className="banner-imgs">
+              <img
+                src={asset("/assets/site/replicate-prediction.jpg")}
+                alt="Barras de chocolate Líbana sobre plato azul con sombras suaves"
+                className="banner-main"
+              />
+              <img
+                src={asset("/assets/site/image-11.jpg")}
+                alt="Barra de chocolate con naranjas deshidratadas sobre tabla de madera"
+                className="banner-secondary"
+              />
+            </div>
+          </div>
+        </section>
 
         <section id="sabores" className="section flavors">
           <div className="container">
