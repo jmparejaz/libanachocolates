@@ -30,6 +30,8 @@ No se ha publicado ningún cambio en producción desde esta rama.
 
 Las rendiciones web de las fotos están en `public/assets/drive-origin/`; el loop optimizado está en `public/assets/videos/`. Todos los archivos seleccionados provienen de `LIBANA CHOCOLATES/MADE` en Google Drive. El inventario y la correspondencia con los originales están en [`ASSET-MAP.md`](./ASSET-MAP.md).
 
+La portada usa el video definitivo **3 Sabores_ ALTA_SINTEXTO**, de la carpeta compartida `Libana/VÍDEOS`, en una versión web de unos 1,4 MB. `app/HeroFilm.tsx` gestiona la reproducción silenciosa, el control de pausa, la suspensión fuera de pantalla y el respaldo estático. No se descarga automáticamente con movimiento reducido o ahorro de datos. En móvil, el video aparece antes del texto.
+
 Las fuentes tipográficas están alojadas localmente en `app/fonts/` y sus licencias OFL acompañan los archivos; el build no necesita descargar fuentes externas.
 
 ## Catálogo y checkout
