@@ -45,6 +45,7 @@ a {
 }
 
 a:focus-visible,
+button:focus-visible,
 summary:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
@@ -309,83 +310,63 @@ summary:focus-visible {
   color: var(--ink);
 }
 
-.hero-visual {
+.hero-film {
   position: relative;
-  min-height: 560px;
-  height: min(68vw, 690px);
+  height: min(72svh, 680px);
+  aspect-ratio: 9 / 16;
+  max-width: 100%;
+  justify-self: center;
   overflow: hidden;
-  border-radius: 48% 48% 3px 3px;
-  background: var(--blue);
+  border-radius: 14px;
+  background: #e2e3e1;
+  box-shadow: 0 22px 60px rgba(48, 35, 29, 0.1);
 }
 
-.hero-visual > img {
+.hero-film-poster,
+.hero-film-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
 }
 
-.hero-detail {
+.hero-film-video {
+  opacity: 0;
+}
+
+.hero-film-video.is-ready {
+  opacity: 1;
+}
+
+.hero-film-toolbar {
   position: absolute;
-  bottom: 11%;
-  left: 1.2rem;
-  width: clamp(125px, 27%, 220px);
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 6px solid var(--cream);
-  box-shadow: 0 12px 32px rgba(40, 25, 20, 0.22);
-}
-
-.hero-detail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-photo-note {
-  position: absolute;
-  right: 1.25rem;
-  bottom: 1.15rem;
-  left: 1.25rem;
+  inset: auto 0 0;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: white;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
-  text-transform: uppercase;
-}
-
-.hero-stamp {
-  position: absolute;
-  top: 12%;
-  right: -1.2rem;
-  width: 98px;
-  height: 98px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background: var(--orange);
-  color: var(--cocoa-deep);
-  line-height: 1;
-  transform: rotate(8deg);
-}
-
-.hero-stamp span {
-  font-family: var(--display);
-  font-size: 1.8rem;
-}
-
-.hero-stamp small {
-  margin-top: 0.2rem;
-  font-size: 0.6rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+}
+
+.hero-film-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .ingredient-ribbon {
@@ -835,10 +816,6 @@ summary:focus-visible {
     gap: 2.5rem;
   }
 
-  .hero-visual {
-    min-height: 480px;
-  }
-
   .products-grid {
     gap: 1rem;
   }
@@ -945,7 +922,7 @@ summary:focus-visible {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding-block: 3.2rem 3rem;
+    padding-block: 1rem 3rem;
   }
 
   .hero-copy {
@@ -976,28 +953,9 @@ summary:focus-visible {
     padding-left: 0.9rem;
   }
 
-  .hero-visual {
-    width: min(100%, 560px);
-    height: min(120vw, 610px);
-    min-height: 390px;
-    margin-inline: auto;
-  }
-
-  .hero-stamp {
-    right: -0.5rem;
-    width: 82px;
-    height: 82px;
-  }
-
-  .hero-detail {
-    bottom: 12%;
-    left: 0.8rem;
-    width: 26%;
-    border-width: 4px;
-  }
-
-  .hero-stamp span {
-    font-size: 1.5rem;
+  .hero-film {
+    grid-row: 1;
+    height: min(70svh, 640px);
   }
 
   .ingredient-ribbon {

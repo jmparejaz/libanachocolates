@@ -1,5 +1,6 @@
 import { products, site } from "./data";
 import { asset } from "./utils";
+import HeroFilm from "./HeroFilm";
 
 function formatPrice(value: number) {
   return new Intl.NumberFormat("es-CO", {
@@ -79,30 +80,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <img
-              src={asset("/assets/drive-origin/hero-hands-sharing.jpg")}
-              alt="Manos parten una barra de chocolate Líbana para compartir"
-              fetchPriority="high"
-              decoding="async"
-            />
-            <div className="hero-detail">
-              <img
-                src={asset("/assets/drive-origin/hero-blue-plate.jpg")}
-                alt="Chocolate Líbana sobre un plato azul"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="hero-photo-note">
-              <span>Una pausa que sabe a cacao</span>
-              <span aria-hidden="true">01 / 03</span>
-            </div>
-            <div className="hero-stamp" aria-label="Chocolate 60% cacao, 85 gramos">
-              <span>60%</span>
-              <small>cacao</small>
-            </div>
-          </div>
+          <HeroFilm />
         </section>
 
         <div className="ingredient-ribbon" aria-label="Nuestra propuesta">
