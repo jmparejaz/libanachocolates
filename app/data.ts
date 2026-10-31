@@ -1,4 +1,5 @@
 import { asset } from "./utils";
+
 export type Product = {
   id: string;
   name: string;
@@ -6,45 +7,49 @@ export type Product = {
   description: string;
   image: string;
   price: number;
-  paymentUrl: string;
+  compareAtPrice?: number;
 };
 
 export const products: Product[] = [
+  // Valores observados en el sitio público actual; confirmar vigencia antes de publicar.
   {
     id: "naranja",
-    name: "Chocolate Naranja",
+    name: "Chocolate Líbana Naranja 60% Cacao",
     flavor: "Naranja",
     description:
-      "Chocolate oscuro de un solo origen con trozos de naranja deshidratada. Cítrico, intenso, puro.",
-    image: asset("/assets/galeria/Naranja-frontal-chocolate.jpg"),
-    price: 28000,
-    paymentUrl: "https://checkout.wompi.co/l/libana-naranja",
+      "Chocolate oscuro con trozos de naranja deshidratada: cítrico, intenso y equilibrado.",
+    image: asset("/assets/drive-origin/product-naranja.jpg"),
+    price: 24900,
+    compareAtPrice: 29900,
   },
   {
     id: "uchuva",
-    name: "Chocolate Uchuva",
+    name: "Chocolate Líbana Uchuva 60% Cacao",
     flavor: "Uchuva",
     description:
-      "Nuestro sabor más colombiano: uchuva deshidratada bañada en chocolate oscuro 70%.",
-    image: asset("/assets/galeria/Frontal-Chocolate-Uchuva.jpg"),
-    price: 28000,
-    paymentUrl: "https://checkout.wompi.co/l/libana-uchuva",
+      "Chocolate oscuro con uchuva deshidratada: fruta colombiana, acidez brillante y final profundo.",
+    image: asset("/assets/drive-origin/product-uchuva.jpg"),
+    price: 24900,
+    compareAtPrice: 29900,
   },
   {
     id: "aji",
-    name: "Chocolate Ají",
+    name: "Chocolate Líbana Ají 60% Cacao",
     flavor: "Ají",
     description:
-      "Chocolate oscuro con un toque de ají colombiano. Dulce al principio, picante al final.",
-    image: asset("/assets/galeria/Frontal-Chocolate-Aji.jpg"),
-    price: 28000,
-    paymentUrl: "https://checkout.wompi.co/l/libana-aji",
+      "Chocolate oscuro con un toque de ají colombiano: dulce al principio, picante al final.",
+    image: asset("/assets/drive-origin/product-aji.jpg"),
+    price: 24900,
+    compareAtPrice: 29900,
   },
 ];
 
 export const site = {
-  name: "Líbana",
+  name: "Líbana Chocolates",
   tagline: "Sabor intenso y puro",
   description:
     "Chocolate oscuro de un solo origen, hecho con cacao orgánico colombiano.",
+  whatsappPhone: "573181247371",
+  instagram: "https://www.instagram.com/libana.chocolates/",
+  email: "info@libanachocolates.com",
 };

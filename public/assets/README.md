@@ -1,9 +1,5 @@
-# Assets — imágenes originales
+# Assets web — Líbana Chocolates
 
-Las imágenes originales del sitio viven en el Google Drive del proyecto (carpeta **MADE**, enlazada en la página MADE del Knowledge Base de Notion).
+Las fotos y el video usados por la página provienen de la carpeta oficial **LIBANA CHOCOLATES / MADE** de Google Drive. Las rendiciones optimizadas viven en `drive-origin/` y `videos/` y se sirven localmente desde el sitio; no se cargan desde Drive ni desde el CDN del sitio anterior.
 
-## Imágenes incluidas
-- `naranja-frontal.jpg`, `uchuva-frontal.jpg`, `aji-frontal.jpg` — usadas en el sitio (app/data.ts)
-- `naranja-3-4.jpg`, `uchuva-3-4.jpg`, `aji-3-4.jpg` — ángulo alternativo disponible
-
-Otras imágenes en el Drive para uso futuro: variantes "detrás" de cada sabor, "Chocolate de mesa", "Barra-de-chocolate-sin-envoltura1080.png", carpeta PRODUCT con 20 fotos, PRESELECCIONADAS y MINI VIDEOS.
+Consulta [`ASSET-MAP.md`](../../ASSET-MAP.md) para ver el nombre de cada archivo fuente y su uso en la página.
