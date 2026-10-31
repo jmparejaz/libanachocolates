@@ -1,27 +1,31 @@
-# Pagos — Wompi vs Bold (decisión pendiente del usuario)
+# Checkout propio con Wompi
 
-El sitio es 100% estático: no puede guardar secretos ni procesar webhooks. Por eso el checkout usa **payment links** (enlaces de pago alojados por la pasarela), patrón soportado por ambas opciones autorizadas.
+## Estado actual
 
-## Comparativa
+- Wompi es el proveedor elegido para la nueva versión.
+- Esta rama todavía no procesa pagos en línea. Los botones de producto abren un pedido prellenado por WhatsApp para no enviar clientes a los enlaces de prueba que estaban en `app/data.ts`.
+- El sitio usa `output: "export"` y no tiene servidor ni almacenamiento de pedidos.
 
-| Criterio | Wompi | Bold |
-|---|---|---|
-| Enlaces de pago | ✓ (checkout.wompi.co/l/...) | ✓ (pay.bold.co) |
-| Tarjetas, PSE, Nequi | ✓ | ✓ |
-| Comisiones típicas | ~2.8% + $1000 COP por transacción (verificar plan actual) | ~2.5-2.99% + fijo (verificar plan actual) |
-| Onboarding | Registro online, requiere banco y documentos de la empresa | Registro online, similar documentación |
-| Notificación de pago | Email + webhook (requiere backend para automatizar) | Email + webhook (requiere backend para automatizar) |
-| Cobertura | Amplia en Colombia, propiedad de Bancolombia | Creciente, foco en comercios pequeños |
+## Requisito de seguridad
 
-## Cómo se cambia la pasarela en este sitio
-Todas las URLs de pago están centralizadas en `app/data.ts` (campo `paymentUrl` de cada producto). Cambiar Wompi→Bold (o viceversa) = reemplazar esas 3 URLs. Sin cambios de código.
+El Widget de Wompi usa una referencia de transacción, monto en centavos, moneda y firma de integridad. La firma depende del secreto de integridad del comercio, por lo que debe generarse en un servidor y nunca incluirse en el JavaScript del navegador, en `NEXT_PUBLIC_*` ni en GitHub. Consulta la [documentación oficial del Widget de Wompi](https://docs.wompi.co/docs/colombia/widget-checkout-web/).
 
-## Pasos para activar pagos
-1. Crear cuenta en la pasarela elegida (Wompi o Bold) y completar verificación.
-2. Crear un enlace de pago por producto (nombre, precio, descripción).
-3. Copiar cada URL en `app/data.ts` → `paymentUrl`.
-4. Ajustar precios reales en `app/data.ts` → `price` (valores en COP, sin decimales).
-5. `npm run build` y subir `out/`.
+El backend debe calcular el monto desde el catálogo confiable del servidor, emitir una referencia única, generar la firma y verificar el resultado de la transacción antes de marcar un pedido como pagado. El navegador no debe poder escoger un monto arbitrario.
 
-## Nota sobre confirmación automática de pagos
-Sin backend, la confirmación de pago llega por email de la pasarela. Si en el futuro se quiere automatizar (bajar stock, enviar pedido a logística), se necesitará un pequeño backend o función serverless para recibir webhooks — fuera del scope de este sitio estático.
+## Arquitectura por decidir
+
+Un sitio exportado a HTML estático no puede crear una firma segura y distinta para cada pedido. Para completar el checkout personalizado se necesita:
+
+1. Un endpoint de servidor o una función serverless para generar la sesión de pago.
+2. Secretos de Wompi configurados en el entorno de despliegue; nunca en el repositorio.
+3. Un webhook verificado y un registro de pedido si se requiere confirmación automática.
+4. Un entorno de producción con runtime de servidor. GitHub Pages no ejecuta rutas de Next.js y el hosting de Hostinger debe confirmar soporte para Node o funciones serverless.
+
+No se debe retirar el pedido por WhatsApp ni activar pagos hasta probar la integración en modo de pruebas y confirmar que el estado final llega al sistema de pedidos.
+
+## Antes de publicar
+
+- Confirmar precio y vigencia de la promoción de cada barra en `app/data.ts`.
+- Definir costos y cobertura de envío, tratamiento de pedidos y devoluciones.
+- Probar los métodos de pago habilitados en la cuenta Wompi.
+- Configurar llaves únicamente en el gestor de secretos del entorno que ejecute el backend.
