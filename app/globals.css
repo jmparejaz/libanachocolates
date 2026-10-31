@@ -421,7 +421,7 @@ summary:focus-visible {
 .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 2rem;
   margin-bottom: 2.8rem;
 }
@@ -1006,7 +1006,7 @@ summary:focus-visible {
   }
 
   .section-heading {
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
@@ -1072,7 +1072,7 @@ summary:focus-visible {
   }
 
   .product-purchase {
-    align-items: end;
+    align-items: flex-end;
     gap: 0.35rem;
     flex-wrap: wrap;
     padding-top: 0.7rem;
